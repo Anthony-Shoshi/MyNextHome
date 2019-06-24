@@ -1,0 +1,42 @@
+.modal-header{
+	color: white;
+	background-color: lightseagreen;
+}
+
+.btn-myPrimary {
+	color: #fff;
+    background-color: #1f3c88;
+    border-color: #1f3c88;
+}
+
+.btn-myPrimary:hover {
+	color: #fff;
+    background-color: #182e69;
+    border-color: #1f3c88;
+}
+
+.btn-myDanger {
+	color: #fff;
+	width: 36%;
+	border-radius: 0.25rem;
+    background-color: #c51414;
+    border-color: #1f3c88;
+}
+
+.btn-myDanger:hover {
+	color: #fff;
+	border-radius: 0.25rem;
+    background-color: #b10a0a;
+    border-color: #1f3c88;
+}
+
+.site-navbar {
+    margin-bottom: 0px;
+    width: 88%;
+    border-bottom: none;
+    position: absolute;
+    z-index: 99;
+}
+
+
+
