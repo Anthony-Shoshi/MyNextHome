@@ -14,7 +14,8 @@ class blogPostController extends Controller
 
     public function blogPostList()
     {
-    	return view('admin.blogPost.blogPostList');
+        $blogPosts = BlogPost::orderBy('created_at','desc')->get();
+    	return view('admin.blogPost.blogPostList')->with('blogPosts',$blogPosts);
     }
 
     public function saveBlogPost(Request $request)

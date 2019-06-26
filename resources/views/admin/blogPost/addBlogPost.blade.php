@@ -3,36 +3,61 @@
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 <script>
         tinymce.init({
-            selector: '#mytextarea'
+            selector: '#mytextarea',
+            force_br_newlines : false,
+            force_p_newlines : false,
+            forced_root_block : '',   
         });
 </script>
 @endsection
 @section('content')
-          <div class="">
-            <div class="page-title">
-                <center><h3>Add Blog Post</h3><center>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <form action="{{route('saveBlogPost')}}" method="post" enctype="multipart/form-data" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                  @csrf
-                  
-                  <label for="fullname">Title</label>
-                  <input type="text" class="blogForm-control" name="title" required />
-                  <br>
-                  <label for="fullname">Upload Photo</label>
-                  <input type="file" class="blogForm-control" name="photo" required />
-                  <br>
-                  <label for="fullname">Description</label>
-                  <textarea id="mytextarea" name="description"></textarea>
-                  <div class="ln_solid"></div>
-                  <div class="form-group">
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <button class="btn btn-primary" type="reset">Reset</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+
+          <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Add Blog Post</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Title <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Cover Image <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea id="mytextarea" name="description"></textarea>
+                        </div>
+                      </div>
+                      
+                     
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+
+                    </form>
                   </div>
                 </div>
-            </form>
+              </div>
             </div>
-          </div>
+          
 @endsection
 
