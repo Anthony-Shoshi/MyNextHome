@@ -25,10 +25,14 @@ Route::group(['middleware' => 'auth'],function(){
 
 Route::get('/home','indexController@index')->name('index');
 Route::get('/adminDashboard','indexController@adminDashboard')->name('adminDashboard');
-Route::get('/addBlogPost','blogPostController@addBlogPost')->name('addBlogPost');
-Route::post('/saveBlogPost','blogPostController@saveBlogPost')->name('saveBlogPost');
-Route::get('/blogPostList','blogPostController@blogPostList')->name('blogPostList');
-
+Route::get('/addBlogPost','blogPostController@addBlogPost')->name('addBlogPost')->middleware(['accessCheck']);
+Route::post('/saveBlogPost','blogPostController@saveBlogPost')->name('saveBlogPost')->middleware(['accessCheck']);
+Route::get('/blogPostList','blogPostController@blogPostList')->name('blogPostList')->middleware(['accessCheck']);
+Route::get('/editBlogPost/{id}','blogPostController@editBlogPost')->name('editBlogPost')->middleware(['accessCheck']);
+Route::post('/updateBlogPost','blogPostController@updateBlogPost')->name('updateBlogPost')->middleware(['accessCheck']);
+Route::get('/deleteBlogPost/{id}','blogPostController@deleteBlogPost')->name('deleteBlogPost')->middleware(['accessCheck']);
+Route::get('/settings','settingsController@settings')->name('settings')->middleware(['accessCheck']);
+Route::post('/updateSettings','settingsController@updateSettings')->name('updateSettings')->middleware(['accessCheck']);
 
 });
 

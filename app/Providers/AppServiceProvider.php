@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\BlogPost;
+use App\Settings;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -36,6 +37,11 @@ class AppServiceProvider extends ServiceProvider
         View::composer('indexListView', function ($view) {
             $blogPosts = BlogPost::orderBy('created_at','desc')->limit(3)->get();
             $view->with('blogPosts', $blogPosts);
+        });
+
+        View::composer('user.includes.footer', function ($view) {
+            $settings = Settings::all();
+            $view->with('settings', $settings);
         });
     }
 }

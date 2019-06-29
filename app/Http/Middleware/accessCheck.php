@@ -17,9 +17,9 @@ class accessCheck
     public function handle($request, Closure $next)
     {
         if (Auth::user()->user_role == 'admin') {
-            return redirect('/adminHome');
+            return $next($request);
         }
-            return redirect('/userHome');
+            return redirect('/home');
 
         //return $next($request);
     }

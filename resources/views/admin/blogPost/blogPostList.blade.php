@@ -1,5 +1,11 @@
 @extends('admin.layouts.master')
 @section('content')
+@if(Session::has('delete'))
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <center><strong>Success!</strong> {{ Session::get('delete') }}</center>
+            </div>
+          @endif
 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -30,8 +36,8 @@
                           <td>{{Str::words($blogPost->description,15,' ....')}}</td>
                           <td>
                   			<a href="#" class="btn btn-info">View</a>
-                  			<a href="#" class="btn btn-warning">Edit</a>
-                  			<a href="#" class="btn btn-danger">Delete</a>
+                  			<a href="{{route('editBlogPost',[$blogPost->id])}}" class="btn btn-warning">Edit</a>
+                  			<a href="{{route('deleteBlogPost',[$blogPost->id])}}" onclick="return confirm('are you sure to delete this post?');" class="btn btn-danger">Delete</a>
  	                      </td>
                         </tr> 
                         @endforeach              
